@@ -10,6 +10,7 @@ public class ForEachDemo {
         list.add("Punit");
         list.add("Dada");
         list.add("Chandrakant");
+        list.add("ShreeKirshna");
 
         System.out.println("Using Traditional way: - ");
         // Using Traditional
@@ -21,6 +22,12 @@ public class ForEachDemo {
 
         list.stream().forEach(t -> System.out.println("Printing list elements using Lambda \n" + t));
 
+        System.out.println("---------List with Filter-------- ");
+
+        list.stream().filter(x->x.startsWith("S")).forEach(t -> System.out.println("Printing list elements Based on condition \n" + t));
+
+        System.out.println("---------------------------------- ");
+        System.out.println("---------- Map Starts -------------- ");
         Map<Integer, String> map = new HashMap<>();
 
         map.put(1,"Sandeep");
@@ -34,5 +41,9 @@ public class ForEachDemo {
         System.out.println("---------------------------------- ");
 
         map.entrySet().stream().forEach(obj->System.out.println(obj));
+
+        System.out.println("---------------------------------- ");
+        System.out.println("--------- With Filter and condition---------- ");
+        map.entrySet().stream().filter(i-> i.getKey()%2 == 0).forEach(obj-> System.out.println("Map value with condition - " + obj));
     }
 }
